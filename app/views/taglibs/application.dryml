@@ -40,7 +40,7 @@
 <extend tag="form" for="Page">
   <old-form merge>
     <after-field-list:>
-      <collection:page_panes/>
+      <sortable-collection:page_panes/>
       <a action="new" to="&this.image_panes">
         <ht key="image_pane.actions.new" >New Image Pane</ht>
       </a>
