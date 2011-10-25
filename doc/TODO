@@ -1,14 +1,19 @@
-- make panes sortable
 - add pick a point sequence
 -- needs text for steps
 -- needs lists of visual prompts
 -- needs list of hints
 - add basic instruction sequence??
+- put panes on the right side of page
+- show more of pane content
+-- show actual image for image pane
+-- show image of graph for graph pane
+-- better: show actual graph for graph pane
 
 new models
-- range_visual_prompt : type of visual_prompt
+- range_visual_prompt(visual_prompt)
 - hint
 -- visual_prompts
 -- text
-- pick_a_point_sequence : type of sequence
+- pick_a_point_sequence(sequence)
 -- correct answer
+- instruction_sequence(sequence)
