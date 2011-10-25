@@ -1,15 +1,13 @@
-class ImagePane < ActiveRecord::Base
+class PagePane < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-    name :string
-    url  :string
     timestamps
   end
 
-  has_one :page_pane, :as => :pane
-  has_one :page, :through => :page_pane
+  belongs_to :page
+  belongs_to :pane, :polymorphic => true
 
   # --- Permissions --- #
 

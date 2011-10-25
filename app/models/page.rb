@@ -9,6 +9,9 @@ class Page < ActiveRecord::Base
   end
 
   belongs_to :activity
+  has_many :page_panes
+  
+  has_many :image_panes, :through => :page_panes, :source => :pane, :source_type => 'ImagePane'
 
   acts_as_list
 
