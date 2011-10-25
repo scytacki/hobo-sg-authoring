@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025193347) do
+ActiveRecord::Schema.define(:version => 20111025205745) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -60,6 +60,12 @@ ActiveRecord::Schema.define(:version => 20111025193347) do
     t.float    "x_max"
     t.float    "x_ticks"
     t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "table_panes", :force => true do |t|
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

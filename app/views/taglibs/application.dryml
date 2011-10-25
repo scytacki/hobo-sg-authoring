@@ -48,6 +48,10 @@
       <a action="new" to="&this.predefined_graph_panes">
         <ht key="predefined_graph_pane.actions.new" >New Predefined Graph Pane</ht>
       </a>
+      |
+      <a action="new" to="&this.table_panes">
+        <ht key="table_pane.actions.new" >New Table Pane</ht>
+      </a>
     </after-field-list:>
   </old-form>
 </extend>
