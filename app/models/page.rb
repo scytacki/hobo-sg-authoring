@@ -9,6 +9,8 @@ class Page < ActiveRecord::Base
 
   belongs_to :activity
 
+  acts_as_list
+
   # --- Permissions --- #
 
   def create_permitted?
