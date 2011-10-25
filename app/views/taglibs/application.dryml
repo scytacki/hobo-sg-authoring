@@ -1,1 +1,16 @@
 <!-- Global taglib - these tags are shared across all subsites -->
+<include src="rapid" gem="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<extend tag="show-page" for="Activity">
+  <old-show-page merge>
+    <new-link:>
+      New Page
+    </new-link:>
+  </old-show-page>
+</extend>
