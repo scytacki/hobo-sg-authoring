@@ -1,32 +1,33 @@
-class Page < ActiveRecord::Base
+class PredefinedGraphPane < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-    name :string
-    text :text
+    title :string
+    y_label :string
+    y_min :float
+    y_max :float
+    y_ticks :float
+    # y_units
+    x_label :string
+    x_min :float
+    x_max :float
+    x_ticks :float
+    # x_units
+    data :text
     timestamps
   end
 
-  belongs_to :activity
-  has_many :page_panes
-  
-  has_many :image_panes, :through => :page_panes, :source => :pane, :source_type => 'ImagePane'
-  has_many :predefined_graph_panes, :through => :page_panes, :source => :pane, :source_type => 'PredefinedGraphPane'
-
-  acts_as_list
-
-  children :page_panes
+  has_one :page_pane, :as => :pane, :dependent => :destroy
+  has_one :page, :through => :page_pane
 
   class << self
     alias :orig_reverse_reflection :reverse_reflection
 
     def reverse_reflection(association)
       case association.to_sym
-      when :image_panes
-        ImagePane.reflections[:page]
-      when :predefined_graph_panes
-        PredefinedGraphPane.reflections[:page]
+      when :page
+        Page.reflections[:predefined_graph_panes]
       else
         self.orig_reverse_reflection(association)
       end

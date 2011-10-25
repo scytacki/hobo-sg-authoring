@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025171214) do
+ActiveRecord::Schema.define(:version => 20111025193347) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -48,6 +48,21 @@ ActiveRecord::Schema.define(:version => 20111025171214) do
   end
 
   add_index "pages", ["activity_id"], :name => "index_pages_on_activity_id"
+
+  create_table "predefined_graph_panes", :force => true do |t|
+    t.string   "title"
+    t.string   "y_label"
+    t.float    "y_min"
+    t.float    "y_max"
+    t.float    "y_ticks"
+    t.string   "x_label"
+    t.float    "x_min"
+    t.float    "x_max"
+    t.float    "x_ticks"
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40
