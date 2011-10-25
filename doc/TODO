@@ -1,0 +1,14 @@
+- make panes sortable
+- add pick a point sequence
+-- needs text for steps
+-- needs lists of visual prompts
+-- needs list of hints
+- add basic instruction sequence??
+
+new models
+- range_visual_prompt : type of visual_prompt
+- hint
+-- visual_prompts
+-- text
+- pick_a_point_sequence : type of sequence
+-- correct answer
