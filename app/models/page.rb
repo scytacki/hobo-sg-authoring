@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
 
   fields do
     name :string
+    text :text
     timestamps
   end
 
