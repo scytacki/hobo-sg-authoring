@@ -15,6 +15,21 @@ class Page < ActiveRecord::Base
 
   acts_as_list
 
+  children :page_panes
+
+  class << self
+    alias :orig_reverse_reflection :reverse_reflection
+
+    def reverse_reflection(association)
+      case association.to_sym
+      when :image_panes
+        ImagePane.reflections[:page]
+      else
+        self.orig_reverse_reflection(association)
+      end
+    end
+  end
+
   # --- Permissions --- #
 
   def create_permitted?
