@@ -14,3 +14,15 @@
     </new-link:>
   </old-show-page>
 </extend>
+
+<extend tag="form" for="Page"> 
+  <old-form merge>
+    <field-list: fields="name, text" /> 
+  </old-form>
+</extend>
+
+<extend tag="show-page" for="Page">
+  <old-show-page>
+    <field-list: skip="position" />
+  </old-show-page>
+</extend>
