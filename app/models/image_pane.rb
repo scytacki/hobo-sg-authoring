@@ -5,6 +5,7 @@ class ImagePane < ActiveRecord::Base
   fields do
     name :string
     url  :string
+    attribution :text
     timestamps
   end
 
