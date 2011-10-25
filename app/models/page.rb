@@ -7,6 +7,8 @@ class Page < ActiveRecord::Base
     timestamps
   end
 
+  belongs_to :activity
+
   # --- Permissions --- #
 
   def create_permitted?

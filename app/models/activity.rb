@@ -7,6 +7,10 @@ class Activity < ActiveRecord::Base
     timestamps
   end
 
+  has_many :pages
+  
+  children :pages
+
   # --- Permissions --- #
 
   def create_permitted?
