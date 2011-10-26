@@ -61,6 +61,10 @@
       <a action="new" to="&this.instruction_sequences">
         <ht key="instruction_sequence.actions.new" >New Instruction Sequence</ht>
       </a>
+      |
+      <a action="new" to="&this.pick_a_point_sequences">
+        <ht key="pick_a_point_sequence.actions.new" >New Pick A Point Sequence</ht>
+      </a>
     </after-field-list:>
   </old-form>
 </extend>

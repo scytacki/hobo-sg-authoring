@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026063734) do
+ActiveRecord::Schema.define(:version => 20111026065716) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -66,6 +66,15 @@ ActiveRecord::Schema.define(:version => 20111026063734) do
   end
 
   add_index "pages", ["activity_id"], :name => "index_pages_on_activity_id"
+
+  create_table "pick_a_point_sequences", :force => true do |t|
+    t.text     "initial_prompt"
+    t.string   "correct_condition"
+    t.text     "give_up_prompt"
+    t.text     "correct_prompt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "predefined_graph_panes", :force => true do |t|
     t.string   "title"

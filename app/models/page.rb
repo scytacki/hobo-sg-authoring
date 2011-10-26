@@ -17,6 +17,7 @@ class Page < ActiveRecord::Base
   has_many :table_panes, :through => :page_panes, :source => :pane, :source_type => 'TablePane'
 
   has_many :instruction_sequences, :through => :page_sequences, :source => :sequence, :source_type => 'InstructionSequence'
+  has_many :pick_a_point_sequences, :through => :page_sequences, :source => :sequence, :source_type => 'PickAPointSequence'
 
   acts_as_list
 
@@ -35,6 +36,8 @@ class Page < ActiveRecord::Base
         TablePane.reflections[:page]
       when :instruction_sequences
         InstructionSequence.reflections[:page]
+      when :pick_a_point_sequences
+        PickAPointSequence.reflections[:page]
       else
         self.orig_reverse_reflection(association)
       end
