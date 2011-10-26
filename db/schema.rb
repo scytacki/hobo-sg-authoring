@@ -11,13 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026065716) do
+ActiveRecord::Schema.define(:version => 20111026134831) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "hints", :force => true do |t|
+    t.text     "hint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "pick_a_point_sequence_id"
+    t.integer  "position"
+  end
+
+  add_index "hints", ["pick_a_point_sequence_id"], :name => "index_hints_on_pick_a_point_sequence_id"
 
   create_table "image_panes", :force => true do |t|
     t.string   "name"

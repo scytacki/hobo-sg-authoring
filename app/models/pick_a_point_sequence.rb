@@ -13,6 +13,10 @@ class PickAPointSequence < ActiveRecord::Base
   has_one :page_sequence, :as => :sequence, :dependent => :destroy
   has_one :page, :through => :page_sequence
 
+  has_many :hints, :order => :position, :accessible => true
+
+  children :hints
+
   class << self
     alias :orig_reverse_reflection :reverse_reflection
 
