@@ -1,5 +1,4 @@
-- add pick a point sequence
--- needs text for steps
+- update pick a point sequence
 -- needs lists of visual prompts
 -- needs list of hints
 - show more of pane content
@@ -13,5 +12,3 @@ new models
 - hint
 -- visual_prompts
 -- text
-- pick_a_point_sequence(sequence)
--- correct answer
