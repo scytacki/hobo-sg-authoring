@@ -31,6 +31,16 @@
   </card:pane>
 </def>
 
+<def tag="card" for="PageSequence">
+  <!-- By default a recursive tag inside a polymorphic definition just calls the base card 
+       So we have to explicitly set the type-->
+  <card:sequence for-type="&this.sequence.class">
+    <append-heading:>
+      (<%= this.class %>)
+    </append-heading:>
+  </card:sequence>
+</def>
+
 <extend tag="form" for="Page">
   <old-form merge>
     <field-list: fields="name, text" /> 
@@ -46,6 +56,10 @@
       |
       <a action="new" to="&this.table_panes">
         <ht key="table_pane.actions.new" >New Table Pane</ht>
+      </a>
+      <collection:page_sequences/>
+      <a action="new" to="&this.instruction_sequences">
+        <ht key="instruction_sequence.actions.new" >New Instruction Sequence</ht>
       </a>
     </after-field-list:>
   </old-form>

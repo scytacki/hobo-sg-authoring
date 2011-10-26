@@ -10,14 +10,17 @@ class Page < ActiveRecord::Base
 
   belongs_to :activity
   has_many :page_panes, :order => :position
+  has_many :page_sequences
   
   has_many :image_panes, :through => :page_panes, :source => :pane, :source_type => 'ImagePane'
   has_many :predefined_graph_panes, :through => :page_panes, :source => :pane, :source_type => 'PredefinedGraphPane'
   has_many :table_panes, :through => :page_panes, :source => :pane, :source_type => 'TablePane'
 
+  has_many :instruction_sequences, :through => :page_sequences, :source => :sequence, :source_type => 'InstructionSequence'
+
   acts_as_list
 
-  children :page_panes
+  children :page_sequences, :page_panes
 
   class << self
     alias :orig_reverse_reflection :reverse_reflection
@@ -30,6 +33,8 @@ class Page < ActiveRecord::Base
         PredefinedGraphPane.reflections[:page]
       when :table_panes
         TablePane.reflections[:page]
+      when :instruction_sequences
+        InstructionSequence.reflections[:page]
       else
         self.orig_reverse_reflection(association)
       end

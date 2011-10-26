@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025210654) do
+ActiveRecord::Schema.define(:version => 20111026063734) do
 
   create_table "activities", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(:version => 20111025210654) do
     t.text     "attribution"
   end
 
+  create_table "instruction_sequences", :force => true do |t|
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "page_panes", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -38,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20111025210654) do
 
   add_index "page_panes", ["page_id"], :name => "index_page_panes_on_page_id"
   add_index "page_panes", ["pane_type", "pane_id"], :name => "index_page_panes_on_pane_type_and_pane_id"
+
+  create_table "page_sequences", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "page_id"
+    t.integer  "sequence_id"
+    t.string   "sequence_type"
+  end
+
+  add_index "page_sequences", ["page_id"], :name => "index_page_sequences_on_page_id"
+  add_index "page_sequences", ["sequence_type", "sequence_id"], :name => "index_page_sequences_on_sequence_type_and_sequence_id"
 
   create_table "pages", :force => true do |t|
     t.string   "name"
