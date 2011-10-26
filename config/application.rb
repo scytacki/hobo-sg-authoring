@@ -9,8 +9,9 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module SgAuthoring
   class Application < Rails::Application
   
-  config.hobo.dryml_only_templates = true
+    config.hobo.dryml_only_templates = true
 
+    config.hobo.app_name = "SmartGraphs Authoring"
   
     config.generators do |g|
       g.test_framework :rspec, :fixtures => false
